@@ -23,7 +23,9 @@ public class VacancyConfiguration : IEntityTypeConfiguration<Vacancy>
             .WithMany(x => x.Vacancies)
             .HasForeignKey(x => x.CategoryId);
 
-        
+        builder.HasOne(x => x.SupplierCompany)
+            .WithMany(x => x.Vacancies)
+            .HasForeignKey(x => x.CompanyId);
 
     }
 }
