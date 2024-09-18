@@ -1,6 +1,6 @@
 ﻿using Domain.Entities.Abstract;
 
-namespace Application.Repositories;
+namespace Application.Repositories.Base;
 
 public interface IGenericRepository<T> where T : BaseEntity, new()
 {

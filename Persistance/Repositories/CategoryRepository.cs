@@ -1,11 +1,12 @@
-﻿using Application.Repositories;
+﻿using Application.Repositories.Abstract;
+using Application.Repositories.Base;
 using Domain.Entities.Concrete;
 using Microsoft.EntityFrameworkCore;
 using Persistance.Contexts;
 
 namespace Persistance.Repositories;
 
-public class CategoryRepository : IGenericRepository<Category>
+public class CategoryRepository : ICategoryRepository
 {
     protected AppDbContext _context;
     protected DbSet<Category> _entity;

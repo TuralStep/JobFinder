@@ -1,11 +1,12 @@
-﻿using Application.Repositories;
+﻿using Application.Repositories.Abstract;
+using Application.Repositories.Base;
 using Domain.Entities.Concrete;
 using Microsoft.EntityFrameworkCore;
 using Persistance.Contexts;
 
 namespace Persistance.Repositories;
 
-public class VacancyRepository : IGenericRepository<Vacancy>
+public class VacancyRepository : IVacancyRepository
 {
     protected AppDbContext _context;
     protected DbSet<Vacancy> _entity;

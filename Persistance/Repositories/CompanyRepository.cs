@@ -1,11 +1,12 @@
-﻿using Application.Repositories;
+﻿using Application.Repositories.Abstract;
+using Application.Repositories.Base;
 using Domain.Entities.Concrete;
 using Microsoft.EntityFrameworkCore;
 using Persistance.Contexts;
 
 namespace Persistance.Repositories;
 
-public class CompanyRepository : IGenericRepository<Company>
+public class CompanyRepository : ICompanyRepository
 {
     protected AppDbContext _context;
     protected DbSet<Company> _entity;
