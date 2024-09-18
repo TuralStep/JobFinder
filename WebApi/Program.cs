@@ -1,5 +1,7 @@
+using Application.Repositories.Abstract;
 using Microsoft.EntityFrameworkCore;
 using Persistance.Contexts;
+using Persistance.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,7 +15,9 @@ builder.Services.AddSwaggerGen();
 
 
 // Repository Registiration
-
+builder.Services.AddScoped<IVacancyRepository, VacancyRepository>();
+builder.Services.AddScoped<ICompanyRepository, CompanyRepository>();
+builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
 
 
 
