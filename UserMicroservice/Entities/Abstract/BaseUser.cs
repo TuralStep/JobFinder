@@ -9,5 +9,6 @@ namespace UserMicroservice.Entities.Abstract
         public string PasswordHash { get; set; }
         public string PasswordSalt { get; set; }
         public ICollection<BaseRole> Roles { get; set; }
+
     }
 }

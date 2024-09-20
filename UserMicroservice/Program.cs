@@ -1,3 +1,6 @@
+using Microsoft.EntityFrameworkCore;
+using UserMicroservice.Data;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -8,7 +11,10 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 
-
+var conn = builder.Configuration.GetConnectionString("Default");
+builder.Services.AddDbContext<UserDbContext>(opt => {
+    opt.UseSqlServer(conn);
+});
 
 
 
