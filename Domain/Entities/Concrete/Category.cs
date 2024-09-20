@@ -9,6 +9,6 @@ public class Category : BaseEntity
 
 
 
-    public ICollection<Vacancy> Vacancies { get; set; }
+    public ICollection<Vacancy>? Vacancies { get; set; }
 
 }

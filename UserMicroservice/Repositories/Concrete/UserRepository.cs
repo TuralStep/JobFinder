@@ -30,6 +30,10 @@ namespace UserMicroservice.Repositories.Concrete
             return user;
         }
 
+        public Task<List<User>> GetUsersByRole(BaseRole role)
+        {
+            throw new NotImplementedException();
+        }
 
 
 

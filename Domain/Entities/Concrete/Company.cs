@@ -10,5 +10,5 @@ public class Company : BaseEntity
     public string? Mail { get; set; }
 
 
-    public ICollection<Vacancy> Vacancies { get; set; }
+    public ICollection<Vacancy>? Vacancies { get; set; }
 }

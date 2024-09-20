@@ -89,10 +89,10 @@ namespace Persistance.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"));
 
-                    b.Property<long>("CategoryId")
+                    b.Property<long?>("CategoryId")
                         .HasColumnType("bigint");
 
-                    b.Property<long>("CompanyId")
+                    b.Property<long?>("CompanyId")
                         .HasColumnType("bigint");
 
                     b.Property<DateTime>("CreatedDate")
@@ -146,21 +146,13 @@ namespace Persistance.Migrations
 
             modelBuilder.Entity("Domain.Entities.Concrete.Vacancy", b =>
                 {
-                    b.HasOne("Domain.Entities.Concrete.Category", "Category")
+                    b.HasOne("Domain.Entities.Concrete.Category", null)
                         .WithMany("Vacancies")
-                        .HasForeignKey("CategoryId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("CategoryId");
 
-                    b.HasOne("Domain.Entities.Concrete.Company", "SupplierCompany")
+                    b.HasOne("Domain.Entities.Concrete.Company", null)
                         .WithMany("Vacancies")
-                        .HasForeignKey("CompanyId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Category");
-
-                    b.Navigation("SupplierCompany");
+                        .HasForeignKey("CompanyId");
                 });
 
             modelBuilder.Entity("Domain.Entities.Concrete.Category", b =>

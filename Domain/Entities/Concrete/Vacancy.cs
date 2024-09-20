@@ -20,16 +20,16 @@ public class Vacancy : BaseEntity
 
 
 
-    public long CategoryId { get; set; }
-
-    [ForeignKey(nameof(CategoryId))]
-    public Category Category { get; set; }
-
-
-
-    public long CompanyId { get; set; }
-
-    [ForeignKey(nameof(CompanyId))]
-    public Company SupplierCompany { get; set; }
+    // public long CategoryId { get; set; }
+    // 
+    // [ForeignKey(nameof(CategoryId))]
+    // public Category? Category { get; set; }
+    // 
+    // 
+    // 
+    // public long CompanyId { get; set; }
+    // 
+    // [ForeignKey(nameof(CompanyId))]
+    // public Company? SupplierCompany { get; set; }
 
 }

@@ -2,16 +2,29 @@ using Application.Repositories.Abstract;
 using Microsoft.EntityFrameworkCore;
 using Persistance.Contexts;
 using Persistance.Repositories;
+using WebApi.BackgroundServices;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+
+
+
+
+
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+
+// Database
+var conn = builder.Configuration.GetConnectionString("Default");
+builder.Services.AddDbContext<AppDbContext>(opt =>
+{
+    opt.UseSqlServer(conn);
+},contextLifetime: ServiceLifetime.Singleton
+);
 
 
 // Repository Registiration
@@ -20,13 +33,10 @@ builder.Services.AddScoped<ICompanyRepository, CompanyRepository>();
 builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
 
 
+// Background services
+builder.Services.AddHostedService<UpdateNotifier>();
 
-// Database
-var conn = builder.Configuration.GetConnectionString("Default");
-builder.Services.AddDbContext<AppDbContext>(opt =>
-{
-    opt.UseSqlServer(conn);
-});
+
 
 
 var app = builder.Build();

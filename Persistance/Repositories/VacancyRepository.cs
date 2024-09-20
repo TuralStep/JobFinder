@@ -23,7 +23,7 @@ public class VacancyRepository : IVacancyRepository
         await _context.SaveChangesAsync();
     }
 
-    public async Task DeleteAsync(int id)
+    public async Task DeleteAsync(long id)
     {
         var entity = await _entity.FirstOrDefaultAsync(x => x.Id == id);
 
@@ -38,7 +38,7 @@ public class VacancyRepository : IVacancyRepository
         return _entity;
     }
 
-    public async Task<Vacancy?> GetAsync(int id)
+    public async Task<Vacancy?> GetAsync(long id)
     {
         return await _entity.FirstOrDefaultAsync(x => x.Id == id); ;
     }

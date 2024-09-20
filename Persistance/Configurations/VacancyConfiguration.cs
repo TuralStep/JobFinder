@@ -19,13 +19,13 @@ public class VacancyConfiguration : IEntityTypeConfiguration<Vacancy>
         builder.Property(x => x.JobNature).IsRequired();
         builder.Property(x => x.Experience).IsRequired();
 
-        builder.HasOne(x => x.Category)
-            .WithMany(x => x.Vacancies)
-            .HasForeignKey(x => x.CategoryId);
-
-        builder.HasOne(x => x.SupplierCompany)
-            .WithMany(x => x.Vacancies)
-            .HasForeignKey(x => x.CompanyId);
+        //builder.HasOne(x => x.Category)
+        //    .WithMany(x => x.Vacancies)
+        //    .HasForeignKey(x => x.CategoryId);
+        //
+        //builder.HasOne(x => x.SupplierCompany)
+        //    .WithMany(x => x.Vacancies)
+        //    .HasForeignKey(x => x.CompanyId);
 
     }
 }

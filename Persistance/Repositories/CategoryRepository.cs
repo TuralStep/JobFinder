@@ -23,7 +23,7 @@ public class CategoryRepository : ICategoryRepository
         await _context.SaveChangesAsync();
     }
 
-    public async Task DeleteAsync(int id)
+    public async Task DeleteAsync(long id)
     {
         var entity = await _entity.FirstOrDefaultAsync(x => x.Id == id);
 
@@ -38,7 +38,7 @@ public class CategoryRepository : ICategoryRepository
         return _entity;
     }
 
-    public async Task<Category?> GetAsync(int id)
+    public async Task<Category?> GetAsync(long id)
     {
         return await _entity.FirstOrDefaultAsync(x => x.Id == id); ;
     }
